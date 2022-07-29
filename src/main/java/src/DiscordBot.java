@@ -24,7 +24,7 @@ public class DiscordBot  {
     public static void main(String[] args) throws LoginException, InterruptedException {
 
 
-        String token = "MTAwMjExNzY5MzI4Mjk4ODAzMg.GL0CGu.augNqsF12Rknsmv1dvmVdrIfsYBIs2oRHAvztg";
+        String token = "Your token";
 
         JDA bot = JDABuilder.createDefault(token)
                 .setActivity(Activity.playing("League of Legends"))
