@@ -8,10 +8,10 @@ public class BotListeners extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
-
+        System.out.println("message recieved");
         if(!event.getAuthor().isBot()) {
             String messageSent = event.getMessage().getContentRaw();
-            System.out.println(messageSent);
+
             event.getChannel().sendMessage("Received: " + messageSent).queue();
         }
     }

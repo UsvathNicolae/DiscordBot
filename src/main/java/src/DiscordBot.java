@@ -15,24 +15,17 @@ import javax.security.auth.login.LoginException;
 import java.io.FileReader;
 
 public class DiscordBot  {
-    public static void main(String[] args) throws LoginException {
+    public static void main(String[] args) throws LoginException, InterruptedException {
 
-        String token = "";
-        JSONParser parser = new JSONParser();
-        try {
-            Object obj = parser.parse(new FileReader("src/main/resources/Token.json"));
-
-            // A JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
-            JSONObject  jsonObject = (JSONObject) obj;
-            token = (String)jsonObject.get("token");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        /*String token = System.getenv("DiscordToken");
+        System.out.println(token);*/
+        String token = "your token";
 
         JDA bot = JDABuilder.createDefault(token)
                 .setActivity(Activity.playing("League of Legends"))
                 .addEventListeners(new BotListeners())
                 .build();
+        bot.awaitReady();
     }
 
 
