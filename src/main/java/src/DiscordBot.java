@@ -20,10 +20,12 @@ public class DiscordBot  {
                 .setActivity(Activity.playing("League of Legends"))
                 .addEventListeners(new BotListeners())
                 .addEventListeners(new BotCommands())
+                .addEventListeners(new BotModals(), new ModalListeners())
                 .build().awaitReady();
         Guild guild = bot.getGuildById("1002114578181791817");//for guild commands
         if(guild != null){
-
+            //simple commands
+            //bot.upsertCommand("ping","Ping").queue();//for global commands
             guild.upsertCommand("ping","Ping").queue();
             guild.upsertCommand("food", "Name your favorite food")
                     .addOption(OptionType.STRING, "name", "name of your favorite food", true)
@@ -36,9 +38,14 @@ public class DiscordBot  {
                     .addOptions(new OptionData(OptionType.INTEGER,"operand1", "first number",true).setRequiredRange(1,Integer.MAX_VALUE),
                                 new OptionData(OptionType.INTEGER,"operand2", "second number",true).setRequiredRange(1,Integer.MAX_VALUE))
                     .queue();
+
+            //modals
+
+            guild.upsertCommand("sup","Say wassup to someone").queue();
+            guild.upsertCommand("multiply","Multiply two numbers").queue();
         }
 
-        //bot.upsertCommand("ping","Ping").queue();//for global commands
+
         //another way to add commands to bot
         /*CommandListUpdateAction commands =  bot.updateCommands();
         commands.addCommands(Commands.slash("ping","Ping"),
