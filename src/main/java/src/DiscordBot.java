@@ -5,20 +5,10 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
-import org.jetbrains.annotations.NotNull;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import src.commands.BotCommands;
 
 import javax.security.auth.login.LoginException;
-import java.io.FileReader;
 
 public class DiscordBot  {
     public static void main(String[] args) throws LoginException, InterruptedException {
