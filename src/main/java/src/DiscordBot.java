@@ -21,6 +21,7 @@ public class DiscordBot  {
                 .addEventListeners(new BotListeners())
                 .addEventListeners(new BotCommands())
                 .addEventListeners(new BotModals(), new ModalListeners())
+                .addEventListeners(new ButtonListeners())
                 .build().awaitReady();
         Guild guild = bot.getGuildById("1002114578181791817");//for guild commands
         if(guild != null){
@@ -43,6 +44,7 @@ public class DiscordBot  {
 
             guild.upsertCommand("sup","Say wassup to someone").queue();
             guild.upsertCommand("multiply","Multiply two numbers").queue();
+
         }
 
 
